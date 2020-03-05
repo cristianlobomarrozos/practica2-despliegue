@@ -1,0 +1,73 @@
+*{margin:0;
+    padding:0;}
+  body {font-family: 'Noto Serif SC', serif;
+        background-color:rgb(145, 166, 173);}
+  #wrapper {width: 90%;
+            background-color:white;
+            /*max-width: 1000px;*/
+            margin: 0 auto;}
+  header {background-image: url('imagenes/header.jpg');
+          background-size: cover;
+          height: 15vw;}
+  header p {position: relative;
+            top: 10vw;
+            left: 60vw;
+            color: white;
+            font-size: 3vw;
+            display: inline;}
+  header i.fas {color:white;
+                font-size: 3vw;
+                position:relative;
+                top:10vw;
+                left: 1vw;
+               display:none;}
+  nav, footer {background-color: rgb(0, 140, 255);}
+  
+  nav ul {padding: 0.5vw 0vw;}
+  nav ul li {display: inline;}
+  nav ul li a {color:black;
+               text-decoration: none;
+               font-size: 1vw;
+               font-weight: bold;
+               padding: 0vw 2.5vw;}
+  #Europa {color:orange;
+        text-decoration: none;}
+  section #certificacion {margin-left:14vw;
+                        width:60vw;}
+  section #externa {margin-left:14vw;
+                   width:50vw;}
+  section #modular {margin-left:14vw;
+                    width:60vw;}
+  nav ul li a:hover {color:white;}
+  section { padding: 2vw;}
+  section p,section h3 {margin: 1vw;}
+  section h3 {text-align:center;}
+  section p {color: black;
+             text-align:justify;
+             text-indent: 3vw;}
+  section #fuente {margin-left:20vw;
+               width: 30vw;}
+  section #potencia {margin-left:20vw;
+                        width:30vw;}
+  section #funcionamiento {margin-left:20vw;
+                     width:30vw;}
+  section ul li {margin-left:7vw;}
+  footer {text-align:center;
+          padding: 1vw;
+          font-size:2vw;}
+  @media only screen and (max-width:740px) {
+          header i.fa-bars {display:inline;}
+          header i.fa-window-close {display:none;}
+          nav {display:none;}
+          nav ul {padding: 0;}
+          nav ul li {display:block;
+                     text-align:center;
+                     border: 1px solid black;}
+          nav ul li a {font-size: 3.5vw;}
+  }
+  @media only screen and (min-width:741px) {
+          header i.fa-bars {display:none;}
+          header i.fa-window-close {display:none;}
+  } 
+
+  

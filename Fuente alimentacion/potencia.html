@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fuente de alimentación - Página principal</title>
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+    <link href="imagenes/favicon.ico" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <script src="funciones.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <i class="fas fa-bars" onclick="mostrar('barranav','hambu','aspa')" id="hambu"></i>
+            <i class="fas fa-window-close" onclick="ocultar('barranav','hambu','aspa')"  id="aspa"></i>
+        </header>
+        <nav id="barranav">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="funcionamiento.html">FUNCIONAMIENTO</a></li>
+                <li><a href="tipos.html">TIPOS</a></li>
+                <li><a href="problemas.html">PROBLEMAS</a></li>
+                <li><a href="potencia.html">POTENCIA</a></li>
+                <li><a href="tamaño.html">TAMAÑO</a></li>
+                <li><a href="certificados.html">CERTIFICADOS</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h1>Potencia</h1>
+
+            <img src="imagenes/potencia.png" alt="Etiqueta fuente" id="potencia">
+
+            <p>La potencia nominal de la PSU suele ser la métrica más obvia para elegir 
+            una fuente de alimentación. Si se elige una fuente de alimentación con muy 
+            poca potencia, el sistema se apagará cuando consuma más energía de la que 
+            puede aportar la fuente. Por el contrario, comprar una tonelada de vatios 
+            podría ser un desperdicio de dinero, por lo tanto se necesita un equilibrio. </p>
+
+            <p>Para encontrar la potencia que se necesita, primero se redondea hacia arriba la potencia a la marca de 50 W más 
+            cercana (370 W se redondearía hacia arriba hasta 400 W). Con este método, por 
+            lo general se puede encontrar una fuente de alimentación que entregue una amplia 
+            potencia, incluso si actualizas a algo más potente en el futuro.</p>
+
+            <p>Para algunos sistemas, es posible que no se justifique esa cantidad adicional 
+            de 50 W o más. Las CPU bloqueadas son mucho menos propensas a ser usadas en situaciones en las que consumen más 
+            potencia de la que requieren sus especificaciones. Además, estas CPU tienden a 
+            disminuir su velocidad máxima de reloj cuando se calientan, lo que ayuda a 
+            ahorrar energía también.</p>
+
+            <p>Cuando se trata de desbloquear las CPUs y el overclocking de la GPU, es mejor 
+            tener mucha potencia. Esto puede ser útil cuando se quiere hacer un overclock, 
+            o cuando se agregan componentes a un sistema de overclocking. El overclocking a 
+            menudo requiere un mejor enfriamiento, y cada ventilador y bomba de agua también 
+            consumirá vatios.</p>
+
+            <p>También vale la pena notar que un sistema no siempre estará al máximo de 
+            potencia. La mayoría de los PCs solo consumen 100 vatios o menos en reposo, y 
+            rara vez más de 150W mientras realizas tareas cotidianas como trabajar en 
+            documentos o navegar por la web. Pero se quiere que la fuente de alimentación 
+            maneje los requerimientos de potencia pico, no las cargas típicas.</p>
+
+            
+        </section>
+        <footer>
+            <p>Autor: Cristian Lobo - IES Campanillas</p>
+        </footer>
+    </div>
+    
+</body>
+</html>

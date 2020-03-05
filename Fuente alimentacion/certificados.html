@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fuente de alimentación - Página principal</title>
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+    <link href="imagenes/favicon.ico" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <script src="funciones.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <i class="fas fa-bars" onclick="mostrar('barranav','hambu','aspa')" id="hambu"></i>
+            <i class="fas fa-window-close" onclick="ocultar('barranav','hambu','aspa')"  id="aspa"></i>
+        </header>
+        <nav id="barranav">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="funcionamiento.html">FUNCIONAMIENTO</a></li>
+                <li><a href="tipos.html">TIPOS</a></li>
+                <li><a href="problemas.html">PROBLEMAS</a></li>
+                <li><a href="potencia.html">POTENCIA</a></li>
+                <li><a href="tamaño.html">TAMAÑO</a></li>
+                <li><a href="certificados.html">CERTIFICADOS</a></li>
+            </ul>
+        </nav>
+        <section>  
+
+            <h1>Certificación</h1>
+
+            <p>La electrónica nunca funciona al 100% 
+            eficiencia en el mundo real. La etiqueta “80 Plus” en 
+            una PSU significa que ha sido clasificada para un cierto 
+            nivel de eficiencia.</p>
+
+            <p>Cuando una fuente de alimentación (u otro dispositivo electrónico) es 
+            80 por ciento eficiente, el 80 por ciento de la potencia 
+            nominal se entrega al sistema y el otro 20 por ciento se 
+            pierde en forma de calor. Si una fuente de alimentación 
+            está extrayendo 500 W de la pared y es 80 por ciento 
+            eficiente al 100 por ciento de carga, solo podrá entregar 
+            400 W a la salida máxima. Tal PSU será clasificada a 400W, 
+            ya que es la potencia máxima que será entregada al sistema.</p>
+            
+            <p>La calidad de las piezas es otra gran razón para obtener 
+            una fuente de alimentación más eficiente. Cuanto más 
+            eficiente es una PSU, menos calor genera. Eso tiende a 
+            significar que los componentes duran más tiempo, y no 
+            necesita usar tanto el ventilador de refrigeración. Aún así, 
+            esto no siempre se cumple.</p>
+
+            <p>Algunas fuentes de alimentación son lo suficientemente 
+            eficientes como para no tener que conectar el ventilador 
+            todo el tiempo. Dependiendo de cada caso, una fuente de 
+            alimentación menos eficiente tiene el potencial de aumentar 
+            la temperatura ambiente en el interior de la caja/torre.</p>
+
+            <img src="imagenes/certificacion.png" alt="Tabla certificación 80 plus" id="certificacion">
+
+
+            
+        </section>
+        <footer>
+            <p>Autor: Cristian Lobo - IES Campanillas</p>
+
+            
+        </footer>
+    </div>
+    
+</body>
+</html>

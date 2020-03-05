@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fuente de alimentación - Página principal</title>
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+    <link href="imagenes/favicon.ico" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <script src="funciones.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <i class="fas fa-bars" onclick="mostrar('barranav','hambu','aspa')" id="hambu"></i>
+            <i class="fas fa-window-close" onclick="ocultar('barranav','hambu','aspa')"  id="aspa"></i>
+        </header>
+        <nav id="barranav">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="funcionamiento.html">FUNCIONAMIENTO</a></li>
+                <li><a href="tipos.html">TIPOS</a></li>
+                <li><a href="problemas.html">PROBLEMAS</a></li>
+                <li><a href="potencia.html">POTENCIA</a></li>
+                <li><a href="tamaño.html">TAMAÑO</a></li>
+                <li><a href="certificados.html">CERTIFICADOS</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h1>¿Cómo funciona una fuente de alimentación?</h1>
+
+            <img src="imagenes/Funcionamiento de fuented de poder.gif" alt="funcionamiento" id="funcionamiento">
+
+
+            <p>Si hay algún componente que sea absolutamente vital para el funcionamiento de 
+            un ordenadorcomo ya he mencionado anteriormente, es la fuente de alimentación. Sin esta, un ordenador no sería funcional, sino que sería una simple caja.</p>
+
+            <p>Las fuentes de alimentación utilizan la tecnología de conmutación para 
+            convertir la entrada de corriente alterna a voltajes de corriente continua 
+            más bajos. Los voltajes más usados son:</p>
+
+            <ul>
+                <li>3,3 voltios</li>
+                <li>5 voltios</li>
+                <li>12 voltios</li>
+            </ul>
+           
+            <p>Hoy en día, aproximadamente el 90% o 95% de la carga se sitúa en el umbral de 
+            12V. Por eso, los otros umbrales se quedan en una posición cada vez más 
+            secundaria.</p>
+
+            <p>La potencia de una fuente de alimentación aparece siempre en vatios.</p>
+
+            <p>En la actualidad, un ordenador se enciende con un pequeño botón y se apaga 
+            con una opción de menú o con el propio botón. Dichas opciones se integraron a
+            la PSU estándar hace varios años.</p>
+
+            <p>De esta manera, el sistema operativo es capaz de enviar una señal a la PSU
+            con el objetivo de indicarle que se apague. El pulsador envía una señal de
+            5 voltios a la fuente de alimentación para indicarle cuándo encenderse.
+            La fuente de alimentación también tiene un circuito que suministra energía 
+            en stand-by, llamado 5VSB (5 volts stand by), incluso cuando está apagado el 
+            ordenador, de modo que los dispositivos que permanezcan encendidos en standby
+            puedan funcionar y la fuente se pueda encender.</p>
+
+            <p>Las fuentes de alimentación que se utilizan en la actualidad son mucho más 
+            ligeras y pequeñas que anteriormente. Transforman la corriente de 50 Hz, en el caso de <a href="http://www.asifunciona.com/tablas/voltaje_paises/voltaje_paises_2.htm" id="Europa"
+            >Europa</a>
+            a una frecuencia mucho más alta, lo que se traduce 
+            en más ciclos por segundo. Esta conversión permite a un transformador pequeño y 
+            ligero en la fuente de alimentación hacer la reducción de voltaje real de 220 
+            voltios en el caso de Europa, pero que puede variar según la región, a la tensión
+            necesaria para dicho componente en particular.</p>
+
+            <p>La corriente alterna de alta frecuencia suministrada por una PSU es además más 
+            fácil de filtrar y rectificar en comparación con la tensión de línea original 
+            de 50 Hz de CA, lo que reduce las variaciones de tensión y el ruido para los 
+            componentes electrónicos sensibles del ordenador.</p>
+
+            <p>Una fuente de alimentación conmutada toma solo la energía que necesita de la 
+            línea de CA.</p>
+
+
+        </section>
+        <footer>
+            <p>Autor: Cristian Lobo - IES Campanillas</p>
+        </footer>
+    </div>
+    
+</body>
+</html>

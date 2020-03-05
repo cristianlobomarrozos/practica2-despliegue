@@ -1,0 +1,223 @@
+class Scene2 extends Phaser.Scene {
+  constructor() {
+    super("playGame");
+  }
+
+  create() {
+    this.scene.launch('HUD');
+
+    let WASD;
+
+    this.background = this.add.tileSprite(0, 0, config.width, config.height, "background");
+    this.background.setOrigin(0, 0);
+
+    /**
+     * Group of ships
+     */
+    this.ships = this.add.group();
+    /**
+     * Group of players
+     */
+    this.players = this.add.group();
+
+    this.ship1 = new Ship({
+      scene: this,
+      x: config.width,
+      y: config.height,
+      key: "ship",
+      anim: "ship1_anim"
+    });
+
+    this.ship2 = new Ship({
+      scene: this,
+      x: config.width / 2 - 200,
+      y: config.height,
+      key: "ship2",
+      anim: "ship2_anim"
+    });
+
+    this.ship3 = new Ship({
+      scene: this,
+      x: config.width / 2 ,
+      y: config.height,
+      key: "ship3",
+      anim: "ship3_anim"
+    });
+
+
+
+    this.input.on('gameobjectdown', this.destroyShip, this);
+
+
+    this.physics.world.setBoundsCollision();
+
+    this.powerUps = this.physics.add.group();
+
+
+    for (var i = 0; i < gameSettings.maxPowerups; i++) {
+      var powerUp = this.physics.add.sprite(16, 16, "power-up");
+      this.powerUps.add(powerUp);
+      powerUp.setRandomPosition(0, 0, game.config.width, game.config.height);
+
+      if (Math.random() > 0.5) {
+        powerUp.play("red");
+      } else {
+        powerUp.play("gray");
+      }
+
+      powerUp.setVelocity(gameSettings.powerUpVel, gameSettings.powerUpVel);
+      powerUp.setCollideWorldBounds(true);
+      powerUp.setBounce(1);
+    }
+
+
+    this.player = new Player({
+      scene: this,
+      x: config.width / 2 - 8,
+      y: config.height - 64,
+      key: "player",
+      codPlayer: 1,
+    });
+    this.registry.set('Player', this.player);
+
+
+    this.cursorKeys = this.input.keyboard.createCursorKeys();
+    this.control = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.CTRL);
+    this.escape = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+
+    /**
+     * Create group to hold all our projectiles
+     */
+    this.projectiles = this.add.group();
+
+    /**
+    * Now we are goind to add all the colliders and overlaps between players, anemies and powerups
+    */
+    // 2.1 player can pick powerups
+    this.physics.add.overlap(this.players, this.powerUps, this.player.pickPowerUp, null, this);
+
+    // 3.2 overlap player with enemies
+    this.physics.add.overlap(this.players, this.ships, this.player.hurtPlayer, null, this);
+
+    // 4.1 add overlaps with callback functions
+    this.physics.add.overlap(this.projectiles, this.ships, this.hitEnemy, null, this);
+
+
+
+    if (this.registry.get("numPlayers") == 2) {
+      this.player2 = new Player({
+        scene: this,
+        x: config.width / 2 - 8,
+        y: config.height - 64,
+        key: "player",
+        codPlayer: 2,
+      });
+
+      /**
+       * Now, we create the key bindings
+       */
+      this.WASD = this.input.keyboard.addKeys({
+        up: Phaser.Input.Keyboard.KeyCodes.W,
+        down: Phaser.Input.Keyboard.KeyCodes.S,
+        left: Phaser.Input.Keyboard.KeyCodes.A,
+        right: Phaser.Input.Keyboard.KeyCodes.D,
+        spacebar: Phaser.Input.Keyboard.KeyCodes.SPACE,
+      });
+
+      //this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+      if (this.registry.get("numPlayers") === 2) {
+
+        this.registry.set('Players_array', this.players);
+
+      }
+
+    }
+
+
+  }
+
+
+  resetPlayer(player) {
+    // 3.2 enable the player again
+    var x = config.width / 2 - 8;
+    var y = config.height + 64;
+    player.enableBody(true, x, y, true, true);
+    //
+    // 4.1 make the player transparent to indicate invulnerability
+    player.alpha = 0.5;
+    //
+    //
+    // 4.2 move the ship from outside the screen to its original position
+    var tween = this.tweens.add({
+      targets: player,
+      y: config.height - 64,
+      ease: 'Power1',
+      duration: 1500,
+      repeat: 0,
+      onComplete: function() {
+        player.alpha = 1;
+      },
+      callbackScope: this
+    });
+  }
+
+  // 4.3 reset ship position when hit
+  hitEnemy(projectile, enemy) {
+
+    var explosion = new Explosion(this, enemy.x, enemy.y);
+
+    projectile.ply.score += 15;
+    projectile.destroy();
+    enemy.resetShipPos(enemy);
+
+
+
+    this.events.emit('hitEnemy');
+  }
+
+  // 4.1 zero pad format function
+  zeroPad(number, size) {
+    var stringNumber = String(number);
+    while (stringNumber.length < (size || 2)) {
+      stringNumber = "0" + stringNumber;
+    }
+    return stringNumber;
+  }
+
+  update() {
+
+    this.ship1.moveShip(1);
+    this.ship2.moveShip(2);
+    this.ship3.moveShip(3);
+
+
+    this.background.tilePositionY -= 0.5;
+
+
+    this.player.movePlayerManager();
+    if (this.registry.get("numPlayers") == 2) {
+      this.player2.movePlayerManager();
+
+    }
+
+    if (Phaser.Input.Keyboard.JustDown(this.escape)) {
+      this.scene.start('mainMenu');
+      this.scene.stop('HUD');
+    }
+
+
+
+    // 4.2 update all the beams
+    let children = this.projectiles.getChildren();
+    children.forEach((child) => {
+      child.update();
+    });
+
+  }
+  destroyShip(pointer, gameObject) {
+    gameObject.setTexture("explosion");
+    gameObject.play("explode");
+  }
+
+
+}
